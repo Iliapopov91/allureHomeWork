@@ -11,7 +11,7 @@ jobs:
       # выкачиваем репозиторий
       - uses: actions/checkout@v3
       # настраиваем java
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v5
         with:
           distribution: 'zulu'
           java-version: '17'
@@ -20,7 +20,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       # запуск тестов
-      - run: ./gradlew clean test -Dselenide.remote=http://your.selenoid.com:4444/wd/hub
+      - run: ./gradlew clean test -Dselenide.remote=https://your.selenoid.com:4444/wd/hub
 
       - uses: actions/checkout@v2
         if: always()
