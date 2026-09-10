@@ -19,12 +19,7 @@ test-results/
 out/
 .idea_modules/
 
-### Gradle ###
-.gradle/
-**/gradle-app.setting
-!gradle-wrapper.jar
-gradle-wrapper.jar
-gradle-wrapper.properties
+
 **/build/
 
 ### Logs ###
