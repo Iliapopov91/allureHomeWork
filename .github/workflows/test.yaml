@@ -5,7 +5,7 @@ on: [push]
 jobs:
   test:
     # где запускаем
-    runs-on: ubuntu-laters
+    runs-on: ubuntu-latest
     # что делаем
     steps:
       # выкачиваем репозиторий
