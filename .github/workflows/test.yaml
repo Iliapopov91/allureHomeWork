@@ -13,9 +13,12 @@ jobs:
       # настраиваем java
       - uses: actions/setup-java@v3
         with:
-            distribution: 'zulu'
-            java-version: '17'
+          distribution: 'zulu'
+          java-version: '17'
       -  uses: Xotabu4/selenoid-github-action@v2
+      # даём права на запуск gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
       # запуск тестов
       - run: ./gradlew clean test -Dselenide.remote=http://your.selenoid.com:4444/wd/hub
 
