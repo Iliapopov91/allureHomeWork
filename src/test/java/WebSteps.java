@@ -38,8 +38,8 @@ public class WebSteps {
     }
 
     @Attachment(value = "Skreenshot", type = "image/png", fileExtension = "png")
-    public byte takeScreenshot() {
-        return ((TakesScreenshot)WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-
+    public byte[] takeScreenshot() {
+        return ((TakesScreenshot) WebDriverRunner.getWebDriver())
+                .getScreenshotAs(OutputType.BYTES);
     }
 }
