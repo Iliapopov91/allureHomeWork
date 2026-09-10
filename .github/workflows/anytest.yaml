@@ -1,0 +1,20 @@
+name: Anytest
+
+on: [push]
+
+jobs:
+  anytest:
+    # где запускаем
+    runs-on: ubuntu-laters
+    # что делаем
+    steps:
+      # выкачиваем репозиторий
+      - uses: actions/checkout@v3
+      # настраиваем java
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      -  uses: Xotabu4/selenoid-github-action@v2
+      # запуск тестов
+      - run: ./gradlew clean test -Dselenide.remote=https://your.selenoid.com:4444/wd/hub
