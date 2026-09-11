@@ -15,12 +15,15 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      -  uses: Xotabu4/selenoid-github-action@v2
-      # даём права на запуск gradlew
+      - uses: Xotabu4/selenoid-github-action@v2
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      # запуск тестов
-      - run: ./gradlew clean test -Dselenide.remote=https://your.selenoid.com:4444/wd/hub
+
+      - name: Check Selenoid is up
+        run: curl -sSf http://localhost:4444/status
+
+      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
 
       - uses: actions/checkout@v4
         if: always()
